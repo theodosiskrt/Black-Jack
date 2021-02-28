@@ -1,0 +1,52 @@
+body{
+    background-color: rgb(3, 80, 0);
+    color :#fff ;
+}
+
+hr{
+    size : 100px;
+}
+
+.mainCard {
+    animation-duration: 0.5s;
+    animation-name: slideCenter;
+  }
+  
+  @keyframes slideCenter {
+    from {
+      margin-left: 120%;
+      /* width: 300%; */
+    }
+}
+
+.backCard{
+    border-radius: 15px;
+    height : 421.92px;
+    margin-top:24px;
+}
+
+#smallCard{
+    margin-top:10px;
+    width:80px;
+    max-width : 80px;
+}
+
+.fill{
+    height:421.92px;
+}
+
+.gameButtons{
+    border: none;
+    border-radius: 5px;
+    border-right :rgb(3, 80, 0) solid 2px;
+    background-color: rgb(100, 5, 2);
+    color : #fff;
+}
+
+.gameButtons:hover{
+    background-color: rgb(136, 38, 38);
+}
+
+.playersCards{
+    max-width:350px;
+}
