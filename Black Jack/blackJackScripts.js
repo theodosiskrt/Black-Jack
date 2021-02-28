@@ -12,6 +12,7 @@ function shuffleCards(){
         [4, 1, 2, 3, 4],
         [16, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     ];
+    cardsDrawed = 0;
     if (!reset){
         const oldH2 = container.querySelectorAll('.gameStartOver');
         if (oldH2 != undefined){
@@ -186,6 +187,7 @@ const drawBtn = document.querySelector('#drawBtn');
 const stopBtn = document.querySelector('#stopBtn');
 
 let reset = true;
+let cardsDrawed = 0;
 let deck;
 shuffleCards();
 reset = false;
@@ -193,7 +195,6 @@ let cardOnTable = false;
 let i, j;
 let dealerPoints = 0;
 let playerPoints = 0;
-let cardsDrawed = 0;
 let canDraw = false;
 let hasAceD = false;
 let hasAceP = false;
