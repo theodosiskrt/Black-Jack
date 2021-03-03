@@ -258,7 +258,7 @@ startBtn.addEventListener('click', (e) => {
     }
     changeCredits(currBet * (-1))
     canDraw = false;
-    toggleElements('The game is begin now!!!');
+    toggleElements('The game has started!!!');
     handFirstCards();
 })
 
