@@ -54,3 +54,17 @@ hr{
 .playersCards{
     max-width:350px;
 }
+
+#crInform {
+    font-size: 13px;
+}
+
+#betInp{
+    outline: none;
+    background-color: rgb(188, 236, 186);
+}
+
+#crChange{
+    font-size: 18px;
+}
+
