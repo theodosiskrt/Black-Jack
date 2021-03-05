@@ -39,35 +39,31 @@ function roundEndNotif(str, won) {
     const contBtn = document.createElement('button');
     contBtn.innerText = 'Continue';
     contBtn.classList.add('mt-5', 'w-auto', 'gameButtons', 'p-2', 'gameStartOver');
-
-    setTimeout(() => {
-        changeCredits(currBet * won);
-        if (betInp.value > credits) {
-            betInp.value = credits;
+    changeCredits(currBet * won);
+   if (betInp.value > credits) {
+        betInp.value = credits;
+    }
+    for (let i = 1; i < dealersCards.children.length; i++) {
+        dealersCards.children[i].classList.toggle('d-none');
+    }
+    container.children[1].children[1].children[0].append(h2);
+    container.children[1].children[1].children[1].append(contBtn);
+    contBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (betInp.value != '') {
+            bet = true;
+            currBet = parseInt(betInp.value);
         }
-        for (let i = 1; i < dealersCards.children.length; i++) {
-            dealersCards.children[i].classList.toggle('d-none');
-        }
-        container.children[1].children[1].children[0].append(h2);
-        container.children[1].children[1].children[1].append(contBtn);
-        contBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (betInp.value != '') {
-                bet = true;
-                currBet = parseInt(betInp.value);
-            }
-            changeCredits((currBet * (-1)))
-            deleteChildren(document.querySelectorAll('.sideCards'));
-            playerPoints = 0;
-            dealerPoints = 0;
-            hasAceD = 0;
-            hasAceP = 0;
-            h2.remove();
-            contBtn.remove();
-            handFirstCards();
-        })
-    }, 1);
-
+        changeCredits((currBet * (-1)))
+        deleteChildren(document.querySelectorAll('.sideCards'));
+        playerPoints = 0;
+        dealerPoints = 0;
+        hasAceD = 0;
+        hasAceP = 0;
+        h2.remove();
+        contBtn.remove();
+        handFirstCards();
+    })
 }
 
 function createImg(i, j) {
@@ -162,8 +158,11 @@ async function handFirstCards() {
                 roundEndNotif('Black Jack Draw!!', 1)
             }
         }
+        else{
+            canDraw = true;
+        }
     }
-    canDraw = true;
+    
 }
 
 function changeCredits(value) {
@@ -363,4 +362,5 @@ stopBtn.addEventListener('click', async (e) => {
         }
     }
 })
+
 
