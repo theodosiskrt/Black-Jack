@@ -45,6 +45,9 @@ function roundEndNotif(str, won) {
         if (betInp.value > credits) {
             betInp.value = credits;
         }
+        for (let i = 1; i < dealersCards.children.length; i++) {
+            dealersCards.children[i].classList.toggle('d-none');
+        }
         container.children[1].children[1].children[0].append(h2);
         container.children[1].children[1].children[1].append(contBtn);
         contBtn.addEventListener('click', (e) => {
@@ -63,7 +66,7 @@ function roundEndNotif(str, won) {
             contBtn.remove();
             handFirstCards();
         })
-    }, 850);
+    }, 1);
 
 }
 
@@ -305,7 +308,7 @@ resetBtn.addEventListener('click', (e) => {
 })
 
 
-drawBtn.addEventListener('click', (e) => {
+drawBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     if (canDraw == true) {
         if (cardOnTable == true) {
@@ -313,7 +316,7 @@ drawBtn.addEventListener('click', (e) => {
             img.classList.add('d-none');
         }
 
-        handCard(playersCards);
+        await handCard(playersCards);
         playerPoints += i;
         if (i == 1 && hasAceP == false) {
             playerPoints += 10;
@@ -349,9 +352,6 @@ stopBtn.addEventListener('click', async (e) => {
                 }
             }
         }
-        for (let i = 1; i < dealersCards.children.length; i++) {
-            dealersCards.children[i].classList.toggle('d-none');
-        }
         if (playerPoints > dealerPoints || dealerPoints > 21) {
             roundEndNotif('Congratulations! You won!', 2);
         }
@@ -363,3 +363,4 @@ stopBtn.addEventListener('click', async (e) => {
         }
     }
 })
+
