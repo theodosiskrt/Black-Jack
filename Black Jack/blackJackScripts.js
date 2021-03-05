@@ -40,7 +40,7 @@ function roundEndNotif(str, won) {
     contBtn.innerText = 'Continue';
     contBtn.classList.add('mt-5', 'w-auto', 'gameButtons', 'p-2', 'gameStartOver');
     changeCredits(currBet * won);
-   if (betInp.value > credits) {
+    if (betInp.value > credits) {
         betInp.value = credits;
     }
     for (let i = 1; i < dealersCards.children.length; i++) {
@@ -150,8 +150,6 @@ async function handFirstCards() {
                 roundEndNotif('You won with a Black Jack!!', 2);
             }
             else if (playerPoints < dealerPoints) {
-                dealersCards.children[1].classList.remove('d-none');
-                dealersCards.children[2].classList.add('d-none');
                 roundEndNotif('Dealer won with a Black Jack.', 0);
             }
             else {
@@ -362,5 +360,3 @@ stopBtn.addEventListener('click', async (e) => {
         }
     }
 })
-
-
