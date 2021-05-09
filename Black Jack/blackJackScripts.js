@@ -75,6 +75,7 @@ function createImg(i, j) {
 
 function handCard(player, faceUp) {
     return new Promise((resolve, reject) => {
+        canDraw = false;
         do {
             i = Math.floor(Math.random() * (deck.length - 1)) + 1;
         } while (deck[i].length == 1);
@@ -96,7 +97,9 @@ function handCard(player, faceUp) {
                 img.classList.add('d-none');
                 moveToSide(backCard, player);
                 backCard.classList.remove('backCardSmall');
+                canDraw = true;
                 resolve();
+                
             }, 800);
 
         }
@@ -106,6 +109,7 @@ function handCard(player, faceUp) {
             cardOnTable = true;
             setTimeout(() => {
                 moveToSide(img, player);
+                canDraw = true;
                 resolve();
             }, 800);
         }
@@ -257,7 +261,6 @@ startBtn.addEventListener('click', (e) => {
         currBet = parseInt(betInp.value);
     }
     changeCredits(currBet * (-1))
-    canDraw = false;
     toggleElements('The game has started!!!');
     handFirstCards();
 })
